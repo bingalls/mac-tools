@@ -2,6 +2,8 @@
 # brewNew.sh   Requires Homebrew http://brew.sh/
 # Place this in your PATH, such as ~/bin/ and make executable: chmod +x brewNew.sh
 # Support for this is limited, as Homebrew changes its output format periodically
+# Code is under the [BSD 2 Clause (NetBSD) license], just like Homebrew, itself.
+# Copyright 2015 - 2017 Bruce Ingalls
 
 function help {
   echo "Summary of new packages, while updating Mac OSX Homebrew"
