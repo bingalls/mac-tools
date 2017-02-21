@@ -24,7 +24,21 @@ done
 
 brew upgrade
 brew doctor
-brew list |grep cask >/dev/null && brew cask audit
 
-#brew list |grep cask >/dev/null && brew cask doctor  # long dump, even when clean
-# cat /tmp/brewNew.list
+TAP=$(brew tap)
+echo $TAP|fgrep 'caskroom/cask' > /dev/null
+if [ $? -eq 0 ];then
+  brew list |grep cask >/dev/null && brew cask audit|grep -v 'passed'|grep -v language
+  #brew list |grep cask >/dev/null && brew cask doctor  # long dump, even when clean
+  brew cask doctor
+  brew cask audit | fgrep -v 'passed' | fgrep -v '==> Auditing language:'
+else
+  echo '`open https://caskroom.github.io/` # Install Cask for a robust brew!'
+fi
+
+echo $TAP|fgrep 'buo/cask-upgrade' > /dev/null
+if [ $? -eq 0 ];then
+  brew cu | fgrep -v ': ==> up to date'
+else
+  echo '`open https://github.com/buo/homebrew-cask-upgrade` # Install Cask-upgrade to keep your cask fresh!'
+fi
