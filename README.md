@@ -1,5 +1,5 @@
 # mac-tools
-Bash scripts for OS X UX
+Bash scripts for Mac OSX
 
-* brewNew.sh Shows summary of new Homebrew packages, while updating, and validating.
+* macupdate.sh Updates Mac with enhanced support for brew cask
 
