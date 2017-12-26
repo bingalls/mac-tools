@@ -39,6 +39,10 @@ MacUpdate is designed to be simple and thorough, rather than fast.
 If you run it every day, it should should only take about a minute.
 If you wait a month, it could take half an hour, if you have much software to download.
 
+MacUpdate does not run `brew cleanup` nor `brew cask cleanup` to safely avoid any
+destructive changes, and to allow rollbacks.
+You should run cleanup regularly, or add these calls to the end of the macupdate.sh script.
+
 MacUpdate can run ~5% faster, and scroll less text off the screen, by disabling
 descriptions of new software, and disabling self-diagnostics.
 These are easy enough to modify in the source; with enough demand, I can ship these changes.
